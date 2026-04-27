@@ -1,0 +1,110 @@
+/* 1. Variáveis de Cores (Feminino, clean, moderno) */
+:root {
+    --bg-color: #fdf6f6;      /* Um off-white rosado bem suave */
+    --text-color: #4a4a4a;    /* Cinza escuro elegante */
+    --accent-color: #d8a7b1;  /* Rosa antigo/pastel */
+    --font-main: 'Poppins', sans-serif;
+}
+
+/* 2. Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* O SEGREDO DO CURSOR: esconde a seta padrão */
+    cursor: none; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita aquele scroll lateral flopado */
+}
+
+/* 3. O Cursor Estilizado (O pulo do gato) */
+.cursor {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* ESSENCIAL */
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    box-shadow: 0 0 10px rgba(216, 167, 177, 0.5);
+}
+.mouseclick {
+    transform: scale(1.5);
+    background-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(216, 167, 177, 0.7);
+}
+
+/* 4. Layout Clean */
+header {
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+/* Estilo básico dos cards de projeto que você vai usar */
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card-projeto {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 15px; /* Arredondado = feminino e amigável */
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
