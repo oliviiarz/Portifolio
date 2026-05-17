@@ -1,4 +1,4 @@
-/* Cursor personalizado */
+/* Cursor */
 const cursor = document.querySelector('.cursor');
 
 document.addEventListener('mousemove', (e) => {
@@ -13,7 +13,9 @@ document.addEventListener('mouseup', () => {
     cursor.classList.remove('mouseclick');
 });
 
-/* caderno */
+
+/* Caderninho */
+
 const notebook = document.getElementById('notebook');
 
 if (notebook) {
@@ -22,8 +24,8 @@ if (notebook) {
     });
 }
 
-
 /* API do GitHub */
+
 const GITHUB_USERNAME = 'oliviiarz'; 
 
 async function carregarProjetos() {
@@ -84,5 +86,197 @@ async function carregarProjetos() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', carregarProjetos);
+/* Carrossel - habilidades */
 
+function inicializarGloboFisheye() {
+    const container = document.querySelector('.wall-container');
+    const modal = document.getElementById('skill-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const closeModal = document.getElementById('close-modal');
+    const rows = Array.from(document.querySelectorAll('.wall-row'));
+
+    if (!container || rows.length === 0) return;
+
+    let isDragging = false;
+    let startX = 0;
+    let dragDistance = 0;
+
+    const rowStates = rows.map(row => {
+        const itensOriginais = Array.from(row.querySelectorAll('.wall-item'));
+        
+        if(row.querySelectorAll('.wall-item').length > itensOriginais.length) {
+            return; 
+        }
+
+        itensOriginais.forEach(item => {
+            const clone1 = item.cloneNode(true);
+            const clone2 = item.cloneNode(true);
+            row.appendChild(clone1);
+            row.insertBefore(clone2, row.firstChild);
+        });
+
+        const todosItens = Array.from(row.querySelectorAll('.wall-item'));
+        const itemWidth = 82;
+        const gap = 24;
+        const totalWidth = todosItens.length * (itemWidth + gap);
+        const larguraOriginal = itensOriginais.length * (itemWidth + gap);
+
+        return {
+            element: row,
+            items: todosItens,
+            totalWidth: totalWidth,
+            larguraOriginal: larguraOriginal,
+            baseSpeed: parseFloat(row.getAttribute('data-speed')) || 1,
+            currentX: -larguraOriginal
+        };
+    });
+
+    function renderizarDistorcaoFisheye() {
+        const containerRect = container.getBoundingClientRect();
+        const containerCenterX = containerRect.left + containerRect.width / 2;
+
+        rowStates.forEach(state => {
+            if(!state) return;
+            state.items.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenterX = itemRect.left + itemRect.width / 2;
+                
+                const distX = itemCenterX - containerCenterX;
+                const maxRange = 450; 
+                
+                const fator = Math.max(0, 1 - Math.abs(distX) / maxRange);
+                const curvatura = Math.pow(fator, 1.5);
+
+                const escala = 0.58 + (curvatura * 0.82); 
+                const opacidade = 0.08 + (curvatura * 0.92);
+
+                const rotateY = (distX / maxRange) * 45;
+
+                item.style.transform = `scale(${escala}) rotateY(${rotateY}deg)`;
+                item.style.opacity = opacidade;
+            });
+        });
+    }
+
+    function animarEsteiras(dragProgress) {
+        rowStates.forEach(state => {
+            if(!state) return;
+            state.currentX += dragProgress * state.baseSpeed;
+
+            if (state.currentX < -state.larguraOriginal * 2) {
+                state.currentX += state.larguraOriginal;
+            }
+            else if (state.currentX > -state.larguraOriginal) {
+                state.currentX -= state.larguraOriginal;
+            }
+
+            state.element.style.transform = `translate3d(${state.currentX}px, 0, 0)`;
+        });
+
+        renderizarDistorcaoFisheye();
+    }
+
+    function iniciarDrag(e) {
+        isDragging = true;
+        dragDistance = 0;
+        startX = e.pageX || e.touches[0].pageX;
+    }
+
+    function moverDrag(e) {
+        if (!isDragging) return;
+        dragDistance++;
+        
+        const currentMouseX = e.pageX || e.touches[0].pageX;
+        const dragProgress = currentMouseX - startX;
+        startX = currentMouseX;
+
+        requestAnimationFrame(() => animarEsteiras(dragProgress));
+    }
+
+    function pararDrag() {
+        isDragging = false;
+        renderizarDistorcaoFisheye();
+    }
+
+    container.addEventListener('mousedown', iniciarDrag);
+    window.addEventListener('mousemove', moverDrag);
+    window.addEventListener('mouseup', pararDrag);
+
+    container.addEventListener('touchstart', iniciarDrag);
+    window.addEventListener('touchmove', moverDrag, { passive: true });
+    window.addEventListener('touchend', pararDrag);
+
+    rowStates.forEach(state => {
+        if(!state) return;
+        state.items.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (dragDistance > 5) return; 
+
+                const name = item.getAttribute('data-name');
+                const imgUrl = item.getAttribute('data-img');
+
+                if (!name || !imgUrl) return;
+
+                modalImg.setAttribute('src', imgUrl);
+                modalImg.setAttribute('alt', name);
+                modalTitle.innerText = name;
+
+                modal.classList.add('active');
+            });
+        });
+    });
+
+    closeModal.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
+    });
+
+    animarEsteiras(0);
+}
+
+/* Scroll */
+
+function animarAoScroll() {
+    const secoes = document.querySelectorAll('#sobre, #projetos, #habilidades, #formacao, #contato');
+    
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach(entrada => {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add('show-section');
+            }
+        });
+    }, {
+        threshold: 0.15 
+    });
+
+    secoes.forEach(secao => {
+        secao.classList.add('hidden-section'); 
+        observador.observe(secao);
+    });
+}
+
+/* Botão voltar ao topo */
+
+function inicializarBotaoTopo() {
+    const btnTopo = document.getElementById('btn-topo');
+    if (btnTopo) {
+        btnTopo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+            });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    carregarProjetos();        
+    inicializarGloboFisheye(); 
+    animarAoScroll(); 
+    inicializarBotaoTopo();   
+});
