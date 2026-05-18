@@ -65,7 +65,6 @@ function inicializarEfeitoIntro() {
             indexSubtitulo++;
             setTimeout(digitarSubtitulo, 65);
 
-
             subtitulo.classList.remove('blink-cursor');
             if (botao) {
                 botao.classList.add('show-btn');

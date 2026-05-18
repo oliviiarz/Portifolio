@@ -39,6 +39,22 @@ header {
     transition: all 0.3s ease;
 }
 
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+main > section {
+    margin-bottom: 28rem !important; 
+    padding: 2rem 0;
+    scroll-margin-top: 110px;
+}
+
+main > section:last-of-type {
+    margin-bottom: 8rem !important;
+}
+
 /* Cursor Personalizado */
 
 .cursor {
@@ -100,21 +116,50 @@ nav a:hover::after {
     transform-origin: left;
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+/* responsivo */
+
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important; 
+    }
+    .cursor {
+        display: none !important;
+    }
+
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav {
+        scrollbar-width: none;
+    }
+
+    nav ul {
+        display: inline-flex;
+        gap: 1.5rem;
+        padding: 0.5rem 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+    }
 }
 
-main > section {
-    margin-bottom: 28rem !important; 
-    padding: 2rem 0;
-    scroll-margin-top: 110px;
-}
-
-main > section:last-of-type {
-    margin-bottom: 8rem !important;
-}
 
 /* introdução */
 
