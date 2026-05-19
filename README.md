@@ -48,7 +48,7 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 <br>
 
 <img src="./assets/desktopversion.png" width="600px"/>  
-<img src="./assets/darkversion.jpg" width="600px"/>
+<img src="./assets/darkversion.png" width="600px"/>
 
 <br>
 
