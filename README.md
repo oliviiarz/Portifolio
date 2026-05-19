@@ -4,6 +4,8 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=ffb7c5&size=35&center=true&vCenter=true&width=1000&lines=Olivia+Falc%C3%A3o,+Full+Stack+Developer+%F0%9F%8C%B8)](https://git.io/typing-svg)
 
 <br>
+<br>
+<br>
 
 # ⊹₊˚‧︵‿₊୨ Meu Portfólio Pessoal ୧₊‿︵‧˚₊⊹
 
@@ -19,7 +21,7 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 
 <br>
 
-🔗 **Instância Oficial:** [Acesse o site aqui](https://oliviadev.vercel.app/)
+🔗 **Link:** [Acesse o site aqui](https://oliviadev.vercel.app/)
 
 <br>
 
@@ -56,7 +58,7 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 
 <br>
 
-## 📂 Estrutura de Arquivos
+## 📂 Estrutura do projeto
 
 Para manter o código organizado, a estrutura do projeto segue este padrão:
 
