@@ -7,11 +7,16 @@
 
 # ⊹₊˚‧︵‿₊୨ Meu Portfólio Pessoal ୧₊‿︵‧˚₊⊹
 
+<br>
+
 ---
+
+<br>
 
 ## 📌 Sobre o Projeto
 
-Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, habilidades e trajetórias no mundo do desenvolvimento fullstack. A ideia aqui é manter uma vitrine viva e em constante evolução da minha carreira técnica.
+Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, habilidades e trajetórias no mundo do desenvolvimento fullstack. A ideia aqui é manter uma vitrine viva e em constante evolução da minha carreira técnica.  
+
 <br>
 
 🔗 **Instância Oficial:** [Acesse o site aqui](https://oliviadev.vercel.app/)
@@ -40,7 +45,10 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 
 ### | Light mode | Dark Version |
 
-<img src="./assets/desktopversion.png" width="500px"/> | <img src="./assets/darkversion.jpg" width="500px"/>
+<br>
+
+<img src="./assets/desktopversion.png" width="600px"/>  
+<img src="./assets/darkversion.jpg" width="600px"/>
 
 <br>
 
