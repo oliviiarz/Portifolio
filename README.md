@@ -1,5 +1,9 @@
-# Portifolio
+# Portfolio Pessoal
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffdae0&height=120&section=header"/>
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=ffb7c5&size=35&center=true&vCenter=true&width=1000&lines=Olivia+Falc%C3%A3o,+Full+Stack+Developer+%F0%9F%8C%B8)](https://git.io/typing-svg)
+
+<br>
 
 # ⊹₊˚‧︵‿₊୨ Meu Portfólio Pessoal ୧₊‿︵‧˚₊⊹
 
@@ -8,28 +12,41 @@
 ## 📌 Sobre o Projeto
 
 Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, habilidades e trajetórias no mundo do desenvolvimento fullstack. A ideia aqui é manter uma vitrine viva e em constante evolução da minha carreira técnica.
+<br>
 
 🔗 **Instância Oficial:** [Acesse o site aqui](https://oliviadev.vercel.app/)
 
----
-
-## 💻 Tecnologias Utilizadas
-
-⟡ HTML
-⟡ CSS
-⟡ JavaScript
+<br>
 
 ---
+
+<br>
+
+## 𐙚 Tecnologias Utilizadas
+
+⟡ HTML  
+⟡ CSS  
+⟡ JavaScript  
+
+<br>
+
+---
+
+<br>
 
 ## 𖦹 Demonstração
 
-> **Note**
+<br>
 
-###| Desktop Preview | Mobile Version |
+### | Light mode | Dark Version |
 
-<img src="./assets/desktopversion.png" width="400px"/> | <img src="./assets/mobileversion.jpg" width="150px"/>
+<img src="./assets/desktopversion.png" width="500px"/> | <img src="./assets/darkversion.jpg" width="500px"/>
+
+<br>
 
 ---
+
+<br>
 
 ## 📂 Estrutura de Arquivos
 
