@@ -364,6 +364,13 @@ h2 {
     z-index: 1;
 }
 
+.notebook-container.open .page,
+.notebook-container.open .cover-back {
+    box-shadow: 0 0 40px rgba(234, 155, 179, 0.65), 
+                0 0 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 /* Moldura da foto */
 
 .profile-pic {
@@ -590,6 +597,7 @@ h2 {
 }
 
 /* responsividade */
+
 @media (max-width: 768px) {
     .carrossel-dots {
         display: flex;
@@ -724,13 +732,13 @@ h2 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 29px;
     transform-style: preserve-3d;
 }
 
 .wall-row {
     display: flex;
-    gap: 24px;
+    gap: 29px;
     width: max-content;
     transform-style: preserve-3d;
     will-change: transform;
@@ -915,8 +923,15 @@ h2 {
     height: 13px;
     background-color: var(--accent-color);
     border-radius: 50%;
-    box-shadow: 0 0 0 4px #ffffff, 0 0 10px rgba(216, 167, 177, 0.5);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(216, 167, 177, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.2);
+    background-color: var(--cursor-color);
+    box-shadow: 0 0 15px var(--accent-color), 
+                0 0 25px var(--cursor-color);
 }
 
 .timeline-content {
@@ -957,12 +972,6 @@ h2 {
     font-size: 0.95rem;
     color: var(--text-color);
     line-height: 1.5;
-}
-
-.timeline-item:hover .timeline-content {
-    transform: translateX(5px); 
-    box-shadow: 0 8px 20px rgba(216, 167, 177, 0.2);
-    border-color: var(--accent-color);
 }
 
 .timeline-item:hover .timeline-content {

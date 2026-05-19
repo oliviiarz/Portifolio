@@ -7,7 +7,7 @@
 <br>
 <br>
 
-# ⊹₊˚‧︵‿₊୨ Meu Portfólio Pessoal ୧₊‿︵‧˚₊⊹
+#   ⊹₊˚‧︵‿₊୨ Meu Portfólio Pessoal ୧₊‿︵‧˚₊⊹
 
 <br>
 
@@ -49,8 +49,8 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 
 <br>
 
-<img src="./assets/desktopversion.png" width="600px"/>  
-<img src="./assets/darkversion.png" width="600px"/>
+<img src="./assets/desktopversion.png" width="700px"/>  
+<img src="./assets/darkversion.png" width="700px"/>
 
 <br>
 
