@@ -48,7 +48,7 @@ main {
 }
 
 main > section {
-    margin-bottom: 28rem !important; 
+    margin-bottom: 5rem !important; 
     padding: 2rem 0;
     scroll-margin-top: 110px;
 }
@@ -183,7 +183,7 @@ nav a:hover::after {
     min-height: 3.2rem;
     font-family: var(--font-main);
     font-weight: 700;
-    margin: 0 0 4px 0;
+    margin: 0 0 1px 0;
 }
 
 #typing-subtitle {
@@ -627,70 +627,6 @@ h2 {
     transform: translateY(0);
 }
 
-/* projetos github */
-
-.grid-projetos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 2rem;
-}
-
-.card-projeto {
-    background-color: #ffffff;
-    border: 2px solid #f0e4e4;
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    cursor: pointer !important; 
-}
-
-.card-projeto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(216, 167, 177, 0.3);
-    border-color: var(--accent-color);
-}
-
-.hint-projeto {
-    display: inline-block;
-    margin-top: 1.2rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #999;
-    transition: color 0.3s;
-}
-
-.card-projeto:hover .hint-projeto {
-    color: var(--accent-color);
-}
-
-.tags-projeto span {
-    font-size: 0.75rem;
-    background-color: var(--bg-color);
-    color: var(--accent-color);
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-weight: 600;
-}
-
-.btn-projeto {
-    display: inline-block;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.btn-projeto:hover {
-    color: var(--accent-color);
-}
-
 /* habilidades */
 
 #habilidades {
@@ -880,6 +816,70 @@ h2 {
     .wall-container { height: 340px; }
     .wall-item { width: 64px; height: 64px; padding: 10px; border-radius: 16px; }
     .v-left, .v-right { width: 110px; }
+}
+
+/* Projetos Github */
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.card-projeto {
+    background-color: #ffffff;
+    border: 2px solid #f0e4e4;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    cursor: pointer !important; 
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(216, 167, 177, 0.3);
+    border-color: var(--accent-color);
+}
+
+.hint-projeto {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.card-projeto:hover .hint-projeto {
+    color: var(--accent-color);
+}
+
+.tags-projeto span {
+    font-size: 0.75rem;
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.btn-projeto {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.btn-projeto:hover {
+    color: var(--accent-color);
 }
 
 /* Formações */

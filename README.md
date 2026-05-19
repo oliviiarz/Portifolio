@@ -45,7 +45,7 @@ Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, h
 
 <br>
 
-### | Light mode | Dark Version |
+### | Light Version | Dark Version |
 
 <br>
 
