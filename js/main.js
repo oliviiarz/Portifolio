@@ -57,7 +57,6 @@ function inicializarEfeitoIntro() {
         }
     }
 
-
     let indexSubtitulo = 0;
     function digitarSubtitulo() {
         if (indexSubtitulo < textoFinalSubtitulo.length) {
@@ -110,7 +109,7 @@ async function carregarProjetos() {
             const card = document.createElement('div');
             card.classList.add('card-projeto');
 
-            const legendaFinal = tagsCustomizadas[repo.name] || repo.description || 'Projeto sem descrição...';
+            const legendaFinal = tagsCustomizadas[repo.name] || repo.description || '...';
 
             const respostaLinguagens = await fetch(repo.languages_url);
             const linguagensObjeto = await respostaLinguagens.json();
@@ -359,8 +358,39 @@ function inicializarModoEscuro() {
     });
 }
 
+function ligarCarrosselSobre() {
+    const container = document.querySelector('.cards-container');
+    const dots = document.querySelectorAll('.dot');
+    const card = document.querySelector('.card-info');
+    
+    if (!container || dots.length === 0 || !card) return;
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.getAttribute('data-index'));
+
+            dots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+            const passo = card.offsetWidth + 20; 
+            container.style.transform = `translateX(-${index * passo}px)`;
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            container.style.transform = 'none';
+        } else {
+            dots.forEach(d => d.classList.remove('active'));
+            dots[0].classList.add('active');
+            container.style.transform = 'translateX(0)';
+        }
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     inicializarEfeitoIntro();
+    ligarCarrosselSobre();
     carregarProjetos();        
     inicializarGloboFisheye(); 
     animarAoScroll(); 

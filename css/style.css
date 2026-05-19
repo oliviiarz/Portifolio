@@ -2,8 +2,9 @@
 :root {
     --bg-color: #fdf6f6;      
     --text-color: #4a4a4a;    
-    --accent-color: #d8a7b1;  
+    --accent-color:  #ea9bb3;  
     --font-main: 'Poppins', sans-serif;
+    --cursor-color: #ffa8cc;
 }
 
 * {
@@ -60,7 +61,7 @@ main > section:last-of-type {
 .cursor {
     width: 12px;
     height: 12px;
-    background-color: var(--accent-color);
+    background-color: var(--cursor-color);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -72,7 +73,7 @@ main > section:last-of-type {
 }
 .mouseclick {
     transform: scale(1.5);
-    background-color: var(--accent-color);
+    background-color: var(--cursor-color);
     box-shadow: 0 0 15px rgba(216, 167, 177, 0.7);
 }
 
@@ -282,6 +283,7 @@ h2 {
     margin-right: auto; 
     margin-bottom: 50px;
 }
+
 .notebook-container.open {
     transform: translateX(50%);
 }
@@ -334,7 +336,7 @@ h2 {
     background-color: var(--accent-color);
     color: white;
     border-radius: 0 15px 15px 0;
-    border-left: 15px solid #c596a0;
+    border-left: 15px solid #dc82a6;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     z-index: 2;
 }
@@ -396,6 +398,34 @@ h2 {
 
 .notebook-container.open .cover {
     transform: rotateY(-180deg);
+}
+
+.capa-doodle {
+    width: 220px; 
+    height: auto;
+    margin-bottom: 15px;
+    opacity: 0.7;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.cover-front .click-hint {
+    font-size: 0.85rem;
+    font-family: var(--font-main);
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    opacity: 0.9;
+    margin-top: 0;
+}
+
+/* Animação capa */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); 
+    }
 }
 
 /* responsividade caderninho mobile */
@@ -467,6 +497,111 @@ h2 {
     }
     .page p {
         font-size: 0.85rem;
+    }
+}
+
+/* cards */
+
+.carrossel-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-window {
+    width: 100%;
+    max-width: 960px;
+    overflow: hidden; 
+    padding: 10px 0;
+}
+
+.cards-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; 
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-info {
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    width: 280px;
+    height: 280px; 
+    flex-shrink: 0 !important;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(216, 167, 177, 0.45);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.card-info-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.card-info h3 { font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.6rem; font-weight: 600; }
+.card-info p { font-size: 0.85rem; line-height: 1.5; color: var(--text-color); margin: 0 !important; }
+
+.carrossel-dots {
+    display: none;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0d5d5;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--accent-color);
+    transform: scale(1.3);
+}
+
+.dot, .dot * {
+    cursor: none !important;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+    .carrossel-dots {
+        display: flex;
+    }
+
+    .cards-window {
+        max-width: 290px; 
+        margin: 0 auto;
+    }
+
+    .cards-container {
+        justify-content: flex-start !important;
+        gap: 20px !important;
     }
 }
 
@@ -549,7 +684,7 @@ h2 {
 
 /* habilidades */
 
-#skills-fisheye-wall {
+#habilidades {
     padding: 6rem 1rem;
     display: flex;
     flex-direction: column;
@@ -558,11 +693,11 @@ h2 {
     background-color: var(--bg-color);
 }
 
-#skills-fisheye-wall h2 {
+#habilidades h2 {
     margin-bottom: 0.5rem;
 }
 
-#skills-fisheye-wall .skills-hint {
+#habilidades .skills-hint {
     font-size: 0.9rem;
     color: #888;
     margin-bottom: 2.5rem;
@@ -1009,7 +1144,8 @@ body.dark-mode {
     --text-color: #f1ebfa;    
     --accent-color: #9d81c6; 
     --card-bg: #140e22;    
-    --border-color: #23193a;  
+    --border-color: #23193a;
+    --cursor-color: #d1b3ff;  
 }
 
 body.dark-mode .btn-voltar-topo {
@@ -1022,6 +1158,18 @@ body.dark-mode .btn-voltar-topo:hover {
     box-shadow: 0 6px 20px rgba(191, 148, 255, 0.5) !important;
     transform: rotate(-90deg) scale(1.15) !important;
 }
+
+body.dark-mode .card-info {
+    background-color: rgba(20, 14, 34, 0.65) !important;
+    border-color: rgba(157, 129, 198, 0.4) !important;
+}
+body.dark-mode .card-info:hover {
+    background-color: rgba(20, 14, 34, 0.9) !important;
+    box-shadow: 0 12px 30px rgba(157, 129, 198, 0.3) !important;
+}
+
+body.dark-mode .dot { background-color: #3d3056; }
+body.dark-mode .dot.active { background-color: var(--accent-color); }
 
 body.dark-mode .click-hint {
     color: #ffffff !important; 
@@ -1039,6 +1187,7 @@ body.dark-mode .cover {
 body.dark-mode header {
     background-color: rgba(11, 7, 19, 0.85) !important;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(56, 56, 56, 0.792);
 }
 
 body.dark-mode .card-projeto {
@@ -1139,4 +1288,18 @@ body.dark-mode .wall-item:hover {
     .v-left, .v-right { 
         width: 100px !important; 
     }
+}
+
+/* seleção de texto */
+
+/* Para navegadores chrome */
+::selection {
+  background-color: #ff75c8;
+  color: #ffffff;
+}
+
+/* Para navegadores Firefox (precisa do prefixo -moz-) */
+::-moz-selection {
+  background-color: #ff75c8;
+  color: #ffffff;
 }
